@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'data_uploader.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_react.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

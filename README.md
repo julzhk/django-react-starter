@@ -25,7 +25,7 @@ Add to following to settings.py
 
 ```
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+ALLOWED_HOSTS = ['0.0.0.0']
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'), 
 )
@@ -46,6 +46,7 @@ WEBPACK_LOADER = {
 And add these too:
 ```
 INSTALLED_APPS = [
+    'hello_world',
     'webpack_loader',
     'rest_framework',
     'django_extensions',
@@ -68,6 +69,7 @@ Update package.json
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "react": "^16.13.0",
     "webpack": "^4.42.0",
     "webpack-bundle-tracker": "^0.4.3",
@@ -172,35 +174,29 @@ module.exports = {
 ```
 
 
-Add a 'hello world' Assets/js/index.js:
+Add a 'hello world' react component to : assets/js/index.js:
 ```
 import React, {useCallback, useRef} from "react";
 import {render} from "react-dom";
 
-const App = (props) => {
-    return (<div>Hello</div>)
+const App = () => {
+    return (<div>Hello World!</div>)
 }
 render(<App/>, document.getElementById('app'));
+```
 
----
 Add a template file
-
+```
 {% load static %}
 {% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html lang="en">
-
 <body>
-hi
 <div id="app"></div>
-?
 {% render_bundle 'main' %}
 </body>
-
 </html>
 ```
-
- 
 
 Add .babelrc
 ```
@@ -223,7 +219,6 @@ Add .babelrc
 ---
 Run web pack in watch mode
 ```
-npm install --save-dev @babel/plugin-proposal-class-properties
 npm run start
 ``` 
  
@@ -232,4 +227,10 @@ Now kick off Runserver!
 python manage.py runserver
 ```
 
+or use docker:
+```
+docker build .
+docker-compose up
+```
 
+and launches on 0.0.0.0:8000
