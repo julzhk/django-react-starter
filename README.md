@@ -230,7 +230,7 @@ The docker way
 ---
 With docker: from within this folder:
 ``` 
-docker-compose up
+docker-compose up --build
 ```
 
 Both should run the app on: http://0.0.0.0:8000/
@@ -238,6 +238,7 @@ Both should run the app on: http://0.0.0.0:8000/
 To view Django admin to see successfully uploaded data:
 
 ```
-python manage.py createsuperuser
+
 ``` 
-And then visit: http://0.0.0.0:8000/admin/
+Admin page: visit: http://0.0.0.0:8000/admin/
+use 'admin' / 'pass'
