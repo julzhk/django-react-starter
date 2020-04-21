@@ -18,4 +18,3 @@ RUN npm install
 # Copy project
 COPY . /code/
 
-RUN python /code/manage.py migrate

@@ -1,1 +1,11 @@
-{"status":"done","chunks":{"main":[{"name":"main-d7f93798af53d5629c56.js","path":"/Users/julianharley/Projects/django_react_starter/assets/bundles/main-d7f93798af53d5629c56.js"}]}}
+{
+  "status": "done",
+  "chunks": {
+    "main": [
+      {
+        "name": "main-d7f93798af53d5629c56.js",
+        "path": "/code/assets/bundles/main-d7f93798af53d5629c56.js"
+      }
+    ]
+  }
+}

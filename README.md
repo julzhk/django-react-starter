@@ -20,7 +20,6 @@ Now :
 
 pip install -r requirements.txt
 
-
 Add to following to settings.py
 
 ```
@@ -101,7 +100,7 @@ Update package.json
   }
 }
 ```
-Add a webpack.config.js
+Add a webpack.config.js file
 ```
 const path = require('path');
 var BundleTracker = require('webpack-bundle-tracker');
@@ -173,8 +172,8 @@ module.exports = {
 };
 ```
 
-
 Add a 'hello world' react component to : assets/js/index.js:
+
 ```
 import React, {useCallback, useRef} from "react";
 import {render} from "react-dom";
@@ -191,10 +190,10 @@ Add a template file
 {% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html lang="en">
-<body>
-<div id="app"></div>
-{% render_bundle 'main' %}
-</body>
+ <body>
+  <div id="app"></div>
+  {% render_bundle 'main' %}
+ </body>
 </html>
 ```
 
@@ -227,10 +226,18 @@ Now kick off Runserver!
 python manage.py runserver
 ```
 
-or use docker:
-```
-docker build .
+The docker way
+---
+With docker: from within this folder:
+``` 
 docker-compose up
 ```
 
-and launches on 0.0.0.0:8000
+Both should run the app on: http://0.0.0.0:8000/
+
+To view Django admin to see successfully uploaded data:
+
+```
+python manage.py createsuperuser
+``` 
+And then visit: http://0.0.0.0:8000/admin/
